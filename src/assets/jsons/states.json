@@ -1,0 +1,132 @@
+[
+    {
+        "state": "SP",
+        "name": "São Paulo",
+        "enabled": false
+    },
+    {
+        "state": "RJ",
+        "name": "Rio de Janeiro",
+        "enabled": true
+    },
+    {
+        "state": "AC",
+        "name": "Acre",
+        "enabled": false
+    },
+    {
+        "state": "AL",
+        "name": "Alagoas",
+        "enabled": false
+    },
+    {
+        "state": "AM",
+        "name": "Amazonas",
+        "enabled": false
+    },
+    {
+        "state": "AP",
+        "name": "Amapá",
+        "enabled": false
+    },
+    {
+        "state": "BA",
+        "name": "Bahia",
+        "enabled": false
+    },
+    {
+        "state": "CE",
+        "name": "Distrito Federal",
+        "enabled": false
+    },
+    {
+        "state": "ES",
+        "name": "Espírito Santo",
+        "enabled": false
+    },
+    {
+        "state": "GO",
+        "name": "Goiás",
+        "enabled": false
+    },
+    {
+        "state": "MA",
+        "name": "Maranhão",
+        "enabled": false
+    },
+    {
+        "state": "MG",
+        "name": "Minas Gerais",
+        "enabled": false
+    },
+    {
+        "state": "MS",
+        "name": "Mato Grosso do Sul",
+        "enabled": false
+    },
+    {
+        "state": "MT",
+        "name": "Mato Grosso",
+        "enabled": false
+    },
+    {
+        "state": "PA",
+        "name": "Pará",
+        "enabled": false
+    },
+    {
+        "state": "PB",
+        "name": "Paraíba",
+        "enabled": false
+    },
+    {
+        "state": "PE",
+        "name": "Pernambuco",
+        "enabled": false
+    },
+    {
+        "state": "PI",
+        "name": "Piauí",
+        "enabled": false
+    },
+    {
+        "state": "PR",
+        "name": "Paraná",
+        "enabled": false
+    },
+    {
+        "state": "RN",
+        "name": "Rio Grande do Norte",
+        "enabled": false
+    },
+    {
+        "state": "RO",
+        "name": "Rondônia",
+        "enabled": false
+    },
+    {
+        "state": "RR",
+        "name": "Roraima",
+        "enabled": false
+    },
+    {
+        "state": "RS",
+        "name": "Rio Grande do Sul",
+        "enabled": false
+    },
+    {
+        "state": "SC",
+        "name": "Santa Catarina",
+        "enabled": false
+    },
+    {
+        "state": "SE",
+        "name": "Sergipe",
+        "enabled": false
+    },
+    {
+        "state": "TO",
+        "name": "Tocantins",
+        "enabled": false
+    }
+]
