@@ -12,11 +12,14 @@ import {AppComponent} from "./components/app/app.component";
 import {CityComponent} from "./components/city/city.component";
 import {StatesComponent} from "./components/states/states.component";
 import {FormsModule} from '@angular/forms';
+import {HomeComponent} from "./components/home/home.component";
+import {StatePermissionService} from "./guards/states.guard";
+import {CityPermissionService} from "./guards/cities.guard";
 
 
 @NgModule({
     declarations: [
-        AppComponent, CityComponent, StatesComponent
+        AppComponent, CityComponent, StatesComponent, HomeComponent
     ],
     imports: [
         BrowserModule,
@@ -29,7 +32,7 @@ import {FormsModule} from '@angular/forms';
         BrowserAnimationsModule,
         FormsModule,
     ],
-    providers: [],
+    providers: [StatePermissionService, CityPermissionService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

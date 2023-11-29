@@ -14,7 +14,7 @@
             <mat-card-content>
                 <mat-list *ngFor="let state of statesFor()">
                     <mat-list-item>
-                        <button matListItemTitle mat-button (click)="loadCities()"
+                        <button matListItemTitle mat-button (click)="loadCities(state)"
                                 [disabled]="!state.enabled">{{ state.name }} - {{ state.state }}
                         </button>
                     </mat-list-item>

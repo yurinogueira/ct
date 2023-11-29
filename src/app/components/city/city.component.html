@@ -14,7 +14,7 @@
             <mat-card-content>
                 <mat-list *ngFor="let city of citiesFor()">
                     <mat-list-item>
-                        <button matListItemTitle mat-button (click)="goToApp()"
+                        <button matListItemTitle mat-button (click)="goToApp(city)"
                                 [disabled]="!city.enabled">{{ city.name }}
                         </button>
                     </mat-list-item>

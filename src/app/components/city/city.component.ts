@@ -8,7 +8,7 @@ import {CityModel} from "../../models/city.model";
     styleUrls: ["./city.component.css"],
     providers: []
 })
-export class CityComponent implements OnInit{
+export class CityComponent implements OnInit {
 
     value: string = ""
     cityList: CityModel[] = []
@@ -30,8 +30,11 @@ export class CityComponent implements OnInit{
         return this.cityList.filter(r => this.normalizeStr(r.name).includes(this.normalizeStr(this.value)));
     }
 
-    goToApp() {
-        this.router.navigate(["app"]).then(r => console.log(r));
+    goToApp(city: CityModel) {
+        const cityString = JSON.stringify(city);
+        localStorage.setItem("city", cityString);
+
+        this.router.navigate(["home"]).then(r => console.log(r));
     }
 
     async getCities(): Promise<CityModel[]> {

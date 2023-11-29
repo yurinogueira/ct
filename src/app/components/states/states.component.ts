@@ -30,8 +30,11 @@ export class StatesComponent implements OnInit {
         return this.stateList.filter(r => this.normalizeStr(r.name).includes(this.normalizeStr(this.value)));
     }
 
-    loadCities() {
-        this.router.navigate(["city"]).then(r => console.log(r));
+    loadCities(state: StateModel) {
+        const stateString = JSON.stringify(state);
+        localStorage.setItem("state", stateString);
+
+        this.router.navigate(["cities"]).then(r => console.log(r));
     }
 
     async getStates(): Promise<StateModel[]> {
