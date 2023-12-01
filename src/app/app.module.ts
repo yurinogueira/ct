@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -31,6 +31,7 @@ import {CityPermissionService} from "./guards/cities.guard";
         ReactiveFormsModule,
         BrowserAnimationsModule,
         FormsModule,
+        NgOptimizedImage,
     ],
     providers: [StatePermissionService, CityPermissionService],
     bootstrap: [AppComponent]
