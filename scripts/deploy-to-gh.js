@@ -6,7 +6,7 @@ import * as fs from "fs";
         await execa("git", ["checkout", "--orphan", "gh-pages"]);
         console.log("Building started...");
         await execa("npm", ["run", "build"]);
-        const folderName = fs.existsSync("dist/frontend") ? "dist" : "build";
+        const folderName = fs.existsSync("dist/frontend") ? "dist/frontend" : "build";
         await execa('cp', ['./CNAME', './dist/frontend/CNAME']);
         await execa("git", ["--work-tree", folderName, "add", "--all"]);
         await execa("git", ["--work-tree", folderName, "commit", "-m", "gh-pages"]);
