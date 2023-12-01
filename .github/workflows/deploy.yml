@@ -46,10 +46,13 @@ jobs:
       - name: Install and build
         run: npm install && npm run build && cp dist/frontend/index.html dist/frontend/404.html
 
-      - name: "Deploy to gh-pages 🚀"
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+      - name: Deploy
+        uses: cpina/github-action-push-to-another-repository@master
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: dist/frontend
-
+          source-directory: 'dist/frontend'
+          destination-github-username: 'yurinogueira'
+          destination-repository-username: 'yurinogueira'
+          destination-repository-name: 'ct'
+          user-email: personal@yurinogueira.dev.br
