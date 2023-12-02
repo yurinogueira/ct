@@ -15,11 +15,12 @@ import {FormsModule} from '@angular/forms';
 import {HomeComponent} from "./components/home/home.component";
 import {StatePermissionService} from "./guards/states.guard";
 import {CityPermissionService} from "./guards/cities.guard";
+import {BoxComponent} from "./components/box/box.component";
 
 
 @NgModule({
     declarations: [
-        AppComponent, CityComponent, StatesComponent, HomeComponent
+        AppComponent, CityComponent, StatesComponent, HomeComponent, BoxComponent
     ],
     imports: [
         BrowserModule,
