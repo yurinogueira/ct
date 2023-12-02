@@ -19,7 +19,7 @@ export class BrasilFedComponent implements OnInit {
         0, 50, 100, 150, 200, 250, 300, 350, 400
     ];
     estadualValues: number[] = [
-        0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50
+        0, 2, 4, 6, 8, 10, 12, 14, 16
     ];
 
     ngOnInit() {
