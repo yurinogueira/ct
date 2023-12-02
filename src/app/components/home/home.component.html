@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button class="icon-button" aria-label="Logo">
+    <button mat-icon-button class="icon-button" aria-label="Logo" (click)="setMainComponent(0)">
         <img class="icon" ngSrc="./assets/images/cidadania.jpg" alt="Logo" height="1024" width="1024">
     </button>
     <div class="vr"></div>
@@ -44,4 +44,18 @@
     <button mat-button class="black">Banco de Gastos</button>
 </mat-toolbar>
 
-<app-box [selectView]="selectView"></app-box>
+<app-box *ngIf="mainComponent === 0 && selectSubview === 0" [selectView]="selectView" (infoEvent)="setSubView($event)"></app-box>
+
+<div class="container-fluid tab-back" *ngIf="mainComponent === 0 && selectSubview === 1">
+    <mat-tab-group>
+        <mat-tab label="EDUCAÇÃO"></mat-tab>
+        <mat-tab *ngFor="let tax of taxNames" label="{{tax}}" disabled="{{true}}"></mat-tab>
+    </mat-tab-group>
+
+</div>
+
+<app-brasil-fed *ngIf="mainComponent === 0 && selectSubview === 1 && selectView === 2"></app-brasil-fed>
+
+<footer>
+    Todos os dados apresentados neste site são fictícios. Nenhuma informação aqui deve ser considerada como real ou verídica.
+</footer>

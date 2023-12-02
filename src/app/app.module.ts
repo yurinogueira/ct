@@ -16,11 +16,13 @@ import {HomeComponent} from "./components/home/home.component";
 import {StatePermissionService} from "./guards/states.guard";
 import {CityPermissionService} from "./guards/cities.guard";
 import {BoxComponent} from "./components/box/box.component";
+import {HighchartsChartModule} from "highcharts-angular";
+import {BrasilFedComponent} from "./components/brasil-fed/brasil-fed.component";
 
 
 @NgModule({
     declarations: [
-        AppComponent, CityComponent, StatesComponent, HomeComponent, BoxComponent
+        AppComponent, CityComponent, StatesComponent, HomeComponent, BoxComponent, BrasilFedComponent
     ],
     imports: [
         BrowserModule,
@@ -33,6 +35,7 @@ import {BoxComponent} from "./components/box/box.component";
         BrowserAnimationsModule,
         FormsModule,
         NgOptimizedImage,
+        HighchartsChartModule,
     ],
     providers: [StatePermissionService, CityPermissionService],
     bootstrap: [AppComponent]

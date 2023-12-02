@@ -16,7 +16,7 @@
            aria-label="SEGURANÇA PÚBLICA">
             <strong class="text-decoration-none">SEGURANÇA PÚBLICA</strong>
         </a>
-        <a routerLink="" class="block text-decoration-none"
+        <a (click)="emitInfo(1)" class="block text-decoration-none"
            [ngClass]="{'education-m': selectView === 0, 'education-e': selectView === 1, 'education-f': selectView === 2}"
            aria-label="EDUCAÇÃO">
             <strong class="text-decoration-none">EDUCAÇÃO</strong>

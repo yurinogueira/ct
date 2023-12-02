@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-box',
@@ -6,6 +6,12 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./box.component.css']
 })
 export class BoxComponent {
+
     @Input() selectView: number = 0;
+    @Output() infoEvent = new EventEmitter<number>();
+
+    emitInfo(value: number) {
+        this.infoEvent.emit(value);
+    }
 
 }

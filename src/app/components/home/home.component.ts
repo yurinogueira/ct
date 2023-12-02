@@ -2,7 +2,6 @@ import {Component, OnInit} from "@angular/core";
 import {CityModel} from "../../models/city.model";
 import {Router} from "@angular/router";
 import {StateModel} from "../../models/state.model";
-import {State} from "@popperjs/core";
 
 @Component({
     selector: "city",
@@ -12,14 +11,25 @@ import {State} from "@popperjs/core";
 })
 export class HomeComponent implements OnInit {
 
-    value: string = ""
-    city: CityModel = this.getCity()
-    state: StateModel = this.getState()
+    value: string = "";
+    city: CityModel = this.getCity();
+    state: StateModel = this.getState();
 
-    cityList: CityModel[] = []
-    stateList: StateModel[] = []
+    cityList: CityModel[] = [];
+    stateList: StateModel[] = [];
 
-    selectView: number = 0
+    taxNames: string[] = [
+        "SAÚDE", "TÉCNOLOGIA", "SEGURANÇA PÚBLICA",
+        "INFRAESTRUTURA", "ASSISTÊNCIA PÚBLICA",
+        "MEIO AMBIENTE", "CULTURA", "ESPORTES",
+        "HABITAÇÃO", "DESENVOLVIMENTO",
+        "DEFESA CIVIL", "COMUNICAÇÃO"
+    ]
+
+    selectView: number = 0;
+    selectSubview: number = 0;
+
+    mainComponent: number = 0;
 
     constructor(private router: Router) {
         this.getCities().then(result => {
@@ -34,8 +44,18 @@ export class HomeComponent implements OnInit {
 
     }
 
+    setSubView(subview: number) {
+        this.selectSubview = subview;
+    }
+
     setView(view: number) {
         this.selectView = view;
+    }
+
+    setMainComponent(component: number) {
+        this.mainComponent = component;
+        this.selectView = 0;
+        this.selectSubview = 0;
     }
 
     getCity(): CityModel {

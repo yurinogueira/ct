@@ -8,6 +8,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatListModule} from "@angular/material/list";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatSelectModule} from "@angular/material/select";
+import {MatTabsModule} from "@angular/material/tabs";
 
 
 const modules = [
@@ -20,6 +21,7 @@ const modules = [
     MatListModule,
     MatGridListModule,
     MatSelectModule,
+    MatTabsModule,
 ];
 
 @NgModule({
