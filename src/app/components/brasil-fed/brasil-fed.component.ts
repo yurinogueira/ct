@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import * as Highcharts from 'highcharts/highmaps';
+import * as HighchartsMap from 'highcharts/highmaps';
+import {StateModel} from "../../models/state.model";
+import countryMap from "highcharts/highmaps";
 
 @Component({
   selector: 'app-brasil-fed',
@@ -8,15 +10,31 @@ import * as Highcharts from 'highcharts/highmaps';
 })
 export class BrasilFedComponent implements OnInit {
 
-    Highcharts: typeof Highcharts = Highcharts;
+    state: string = "";
+    countryMap: typeof HighchartsMap = HighchartsMap;
     chartConstructor = "mapChart";
+
+    stateList: StateModel[] = [];
+    municipalValues: number[] = [
+        0, 50, 100, 150, 200, 250, 300, 350, 400
+    ];
+    estadualValues: number[] = [
+        0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50
+    ];
+
+    ngOnInit() {
+        this.loadMap().then(r => console.log(r));
+        this.getStates().then(result => {
+            result.forEach(i => this.stateList.push(new StateModel(i.state, i.name, i.enabled)));
+        });
+    }
 
     async loadMap() {
         const topology = await fetch(
             'https://code.highcharts.com/mapdata/countries/br/br-all.topo.json'
         ).then(response => response.json());
 
-        Highcharts.mapChart('container', {
+        HighchartsMap.mapChart('container', {
             chart: {
                 map: topology,
                 backgroundColor: 'rgba(255,255,255,0)'
@@ -88,8 +106,9 @@ export class BrasilFedComponent implements OnInit {
         });
     }
 
-    ngOnInit() {
-        this.loadMap().then(r => console.log(r));
+    async getStates(): Promise<StateModel[]> {
+        const request = await fetch("./assets/jsons/states.json");
+        return await request.json();
     }
 
     @Input() selectView: number = 0;

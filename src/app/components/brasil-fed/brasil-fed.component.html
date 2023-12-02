@@ -1,15 +1,42 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col">
-
+        <div class="col-6 d-flex">
+            <mat-card class="flex-fill">
+                <mat-card-header>
+                    <h3>
+                        <mat-label>Média do Recebimento</mat-label>
+                    </h3>
+                </mat-card-header>
+                <mat-card-content>
+                    <mat-divider></mat-divider>
+                    <app-progress color="#7cb27e" name="Média Municipal" media="55%" info="Em R$ Milhões" [mediaValue]="231.2" [values]="municipalValues"></app-progress>
+                    <mat-divider></mat-divider>
+                    <app-progress color="#a9e7a9" name="Média Estadual" media="9%" info="Em R$ Bilhões" [mediaValue]="4.09" [values]="estadualValues"></app-progress>
+                    <mat-divider></mat-divider>
+                    <h4 class="mt-5">Estado com maior recebimento: São Paulo</h4>
+                    <h4>Estado com menor recebimento: Rondônia</h4>
+                </mat-card-content>
+            </mat-card>
         </div>
-        <div class="col">
-            <highcharts-chart
-                id="container"
-                [Highcharts]="Highcharts"
-                [constructorType]="chartConstructor"
-                style="width: 100%; height: 512px"
-            ></highcharts-chart>
+        <div class="col-6">
+            <mat-card>
+                <mat-card-header>
+                    <mat-form-field class="e-size black">
+                        <mat-label>Pesquisa</mat-label>
+                        <mat-select [(value)]="state" [ngClass]="{'text-primary': selectView === 1}">
+                            <mat-option *ngFor="let st of stateList" [value]="st.state" [disabled]="true">{{ st.name }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-card-header>
+                <mat-card-content>
+                    <highcharts-chart
+                        id="container"
+                        [Highcharts]="countryMap"
+                        [constructorType]="chartConstructor"
+                    ></highcharts-chart>
+                </mat-card-content>
+            </mat-card>
         </div>
     </div>
 </div>
