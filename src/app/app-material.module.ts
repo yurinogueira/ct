@@ -9,6 +9,10 @@ import {MatListModule} from "@angular/material/list";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatSelectModule} from "@angular/material/select";
 import {MatTabsModule} from "@angular/material/tabs";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 
 const modules = [
@@ -22,6 +26,10 @@ const modules = [
     MatGridListModule,
     MatSelectModule,
     MatTabsModule,
+    MatTooltipModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
 ];
 
 @NgModule({

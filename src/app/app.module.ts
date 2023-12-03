@@ -19,7 +19,7 @@ import {BoxComponent} from "./components/box/box.component";
 import {HighchartsChartModule} from "highcharts-angular";
 import {BrasilFedComponent} from "./components/brasil-fed/brasil-fed.component";
 import {ProgressComponent} from "./components/progress/progress.component";
-import {MatTooltipModule} from "@angular/material/tooltip";
+import {EstadualComponent} from "./components/estadual/estadual.component";
 
 
 @NgModule({
@@ -30,7 +30,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
         HomeComponent,
         BoxComponent,
         BrasilFedComponent,
-        ProgressComponent
+        ProgressComponent,
+        EstadualComponent,
     ],
     imports: [
         BrowserModule,
@@ -44,7 +45,6 @@ import {MatTooltipModule} from "@angular/material/tooltip";
         FormsModule,
         NgOptimizedImage,
         HighchartsChartModule,
-        MatTooltipModule,
     ],
     providers: [StatePermissionService, CityPermissionService],
     bootstrap: [AppComponent]

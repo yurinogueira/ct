@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as HighchartsMap from 'highcharts/highmaps';
 import {StateModel} from "../../models/state.model";
-import countryMap from "highcharts/highmaps";
 
 @Component({
   selector: 'app-brasil-fed',

@@ -14,7 +14,8 @@
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
                         "allowedCommonJsDependencies": [
-                            "highcharts/highmaps"
+                            "highcharts/highmaps",
+                            "highcharts"
                         ],
                         "outputPath": "dist/frontend",
                         "index": "src/index.html",

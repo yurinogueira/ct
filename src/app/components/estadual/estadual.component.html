@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 d-flex">
+            <mat-card class="flex-fill">
+                <mat-card-content>
+                    <highcharts-chart id="container" [Highcharts]="yearChart" [options]="chartOptions">
+                    </highcharts-chart>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-6 d-flex">
+            <mat-card class="flex-fill">
+                <mat-card-header>
+                    <h4>Dados de: {{ selectedYear }}</h4>
+                </mat-card-header>
+                <mat-card-content>
+                    <h5 class="rj-label">Rio de Janeiro</h5>
+                    <div *ngIf="!loaded" id="loading">
+                        <mat-spinner diameter="256"></mat-spinner>
+                    </div>
+                    <table *ngIf="loaded" mat-table [dataSource]="dataSource">
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="position">
+                            <th mat-header-cell *matHeaderCellDef> N.</th>
+                            <td mat-cell *matCellDef="let element"> {{ element.pos }}</td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="info">
+                            <th mat-header-cell *matHeaderCellDef> Descrição</th>
+                            <td mat-cell *matCellDef="let element"> {{ element.info }}</td>
+                        </ng-container>
+
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="date">
+                            <th mat-header-cell *matHeaderCellDef> Data</th>
+                            <td mat-cell *matCellDef="let element"> {{ element.date }}</td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="amount">
+                            <th mat-header-cell *matHeaderCellDef> Valor</th>
+                            <td mat-cell *matCellDef="let element"> {{ element.amount }}</td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                                   aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
