@@ -24,7 +24,7 @@
                     <mat-form-field class="e-size black">
                         <mat-label>Pesquisa</mat-label>
                         <mat-select [(value)]="state" [ngClass]="{'text-primary': selectView === 1}">
-                            <mat-option *ngFor="let st of stateList" [value]="st.state" [disabled]="true">{{ st.name }}
+                            <mat-option *ngFor="let st of stateList" (click)="infoEvent.emit(1)" [value]="st.state" [disabled]="!st.enabled">{{ st.name }}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>

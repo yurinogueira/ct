@@ -54,7 +54,7 @@
 
 </div>
 
-<app-brasil-fed *ngIf="mainComponent === 0 && selectSubview === 1 && selectView === 2"></app-brasil-fed>
+<app-brasil-fed (infoEvent)="selectView = $event" *ngIf="mainComponent === 0 && selectSubview === 1 && selectView === 2"></app-brasil-fed>
 <app-estadual *ngIf="mainComponent === 0 && selectSubview === 1 && selectView === 1"></app-estadual>
 <app-municipal *ngIf="mainComponent === 0 && selectSubview === 1 && selectView === 0"></app-municipal>
 

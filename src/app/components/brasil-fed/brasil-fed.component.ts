@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import * as HighchartsMap from 'highcharts/highmaps';
 import {StateModel} from "../../models/state.model";
 
@@ -21,6 +21,8 @@ export class BrasilFedComponent implements OnInit {
         0, 2, 4, 6, 8, 10, 12, 14, 16
     ];
 
+    @Output() infoEvent = new EventEmitter<number>();
+
     ngOnInit() {
         this.loadMap().then(r => console.log(r));
         this.getStates().then(result => {
@@ -32,6 +34,8 @@ export class BrasilFedComponent implements OnInit {
         const topology = await fetch(
             'https://code.highcharts.com/mapdata/countries/br/br-all.topo.json'
         ).then(response => response.json());
+
+        const self = this;
 
         HighchartsMap.mapChart('container', {
             chart: {
@@ -87,6 +91,13 @@ export class BrasilFedComponent implements OnInit {
                         ['br-ac', 5.6 / 4],
                         ['br-ro', 4.4 / 4]
                     ],
+                    events: {
+                        click: function (event: HighchartsMap.SeriesClickEventObject) {
+                            if (event.point.name.toString() === "Rio de Janeiro") {
+                                self.infoEvent.emit(1);
+                            }
+                        }
+                    },
                     name: 'Recebimneto em R$ Bilhões',
                     states: {
                         hover: {
