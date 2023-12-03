@@ -20,6 +20,7 @@ import {HighchartsChartModule} from "highcharts-angular";
 import {BrasilFedComponent} from "./components/brasil-fed/brasil-fed.component";
 import {ProgressComponent} from "./components/progress/progress.component";
 import {EstadualComponent} from "./components/estadual/estadual.component";
+import {MunicipalComponent} from "./components/municipal/municipal.component";
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {EstadualComponent} from "./components/estadual/estadual.component";
         BrasilFedComponent,
         ProgressComponent,
         EstadualComponent,
+        MunicipalComponent,
     ],
     imports: [
         BrowserModule,

@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {CityModel} from "../../models/city.model";
 import {Router} from "@angular/router";
 import {StateModel} from "../../models/state.model";
+import {main} from "@popperjs/core";
 
 @Component({
     selector: "city",
@@ -108,4 +109,5 @@ export class HomeComponent implements OnInit {
         return await request.json();
     }
 
+    protected readonly main = main;
 }
