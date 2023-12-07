@@ -1,0 +1,185 @@
+<div class="container-fluid">
+    <div class="row">
+        <mat-card class="flex-fill m-2">
+            <mat-card-content class="text-center">
+                <div class="container-fluid" *ngIf="salariosAba === 0">
+                    <mat-icon>search</mat-icon>
+                    <mat-form-field class="search-field w512">
+                        <mat-label>Insira o nome de uma pessoa, ou orgão, ou cpf</mat-label>
+                        <input matInput type="text" [(ngModel)]="value">
+                    </mat-form-field>
+                    <div class="row">
+                        <div class="col-6">
+                            <mat-form-field class="e-size black w512 float-right">
+                                <mat-label>Selecione a Instituição</mat-label>
+                                <mat-select [(value)]="instituicao">
+                                    <mat-option [value]="instituicao">
+                                        {{ instituicao.sigla }}
+                                        <mat-icon [matTooltip]="instituicao.name">info</mat-icon>
+                                    </mat-option>
+                                    <mat-option *ngFor="let i of instituicoesList" [value]="i">
+                                        {{ i.sigla }}
+                                        <mat-icon [matTooltip]="i.name">info</mat-icon>
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-icon class="float-right mt-3" matTooltip="Entidade pública onde serviços são prestados por funcionários designados">info</mat-icon>
+                        </div>
+                        <div class="col-6">
+                            <mat-form-field class="e-size black w512 float-left">
+                                <mat-label>Lotação</mat-label>
+                                <mat-select [(value)]="lotacao">
+                                    <mat-option [value]="lotacao">
+                                        {{ lotacao.sigla }}
+                                        <mat-icon [matTooltip]="lotacao.name">info</mat-icon>
+                                    </mat-option>
+                                    <mat-option *ngFor="let i of lotacoesList" [value]="i">
+                                        {{ i.sigla }}
+                                        <mat-icon [matTooltip]="i.name">info</mat-icon>
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-icon class="float-left mt-3" matTooltip="Local atribuído para trabalho de servidor público">info</mat-icon>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <mat-form-field class="float-right w512">
+                                <mat-label>Informe a data de ínicio e fim</mat-label>
+                                <mat-date-range-input (click)="picker.open()" [rangePicker]="picker">
+                                    <input matStartDate placeholder="Start date">
+                                    <input matEndDate placeholder="End date">
+                                </mat-date-range-input>
+                                <mat-hint>DD/MM/YYYY – DD/MM/YYYY</mat-hint>
+                                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-date-range-picker #picker></mat-date-range-picker>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6">
+                            <mat-slide-toggle class="float-left w512"><p>Exibir demitidos</p></mat-slide-toggle>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="mt-4 mb-4 float-right" mat-raised-button (click)="setSalariosAba(1); clearSearch()">INSERIR OPÇÕES DE BUSCA AVANÇADA</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="mt-4 mb-4 float-left" mat-raised-button (click)="setSalariosAba(2); loadData()" color="primary">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid" *ngIf="salariosAba === 1">
+                    <mat-form-field class="e-size search-field black w512">
+                        <mat-label>Selecione o cargo</mat-label>
+                        <mat-select [(value)]="job">
+                            <mat-option [value]="job">
+                                {{ job.nome }}
+                            </mat-option>
+                            <mat-option *ngFor="let j of jobs" [value]="j">
+                                {{ j.nome }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div class="row">
+                        <div class="col-12">
+                            <mat-icon>person</mat-icon>
+                            <mat-form-field class="w768">
+                                <mat-label>Insira o nome da pessoa</mat-label>
+                                <input matInput type="text" [(ngModel)]="nome">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <mat-icon>badge</mat-icon>
+                            <mat-form-field class="w768">
+                                <mat-label>Insira a matrícula da pessoa</mat-label>
+                                <input matInput type="text" [(ngModel)]="matricula">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="mt-4 mb-4 float-right" mat-raised-button (click)="setSalariosAba(0); clearSearch()">INSERIR OPÇÕES DE BUSCA SIMPLES</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="mt-4 mb-4 float-left" mat-raised-button (click)="setSalariosAba(2); loadData()" color="primary">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid" *ngIf="salariosAba === 2">
+                    <div class="row">
+                        <div class="col-8 mt-4">
+                            <p class="float-left">
+                                Ordenado por nome: {{ordenadoNome}}
+                            </p>
+                            <p class="float-left ml-3 mr-3">
+                                |
+                            </p>
+                            <p class="float-left ml-">
+                                Ordenado por Instituição: {{ordenadoInstituicao}}
+                            </p>
+                        </div>
+                        <div class="col-4 mt-4">
+                            <button class="float-right" mat-raised-button (click)="setSalariosAba(0); clearSearch()" color="accent">Voltar</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+                                   class="mat-elevation-z8">
+
+                                <!-- Position Column -->
+                                <ng-container matColumnDef="nome">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordena por nome">
+                                        Nome
+                                    </th>
+                                    <td mat-cell *matCellDef="let element">{{element.nome}}</td>
+                                </ng-container>
+
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="instituicao">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordena por Instituição">
+                                        Instituição
+                                    </th>
+                                    <td mat-cell *matCellDef="let element">{{element.instituicao}}</td>
+                                </ng-container>
+
+                                <!-- Weight Column -->
+                                <ng-container matColumnDef="lotacao">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        Lotação
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.lotacao}} </td>
+                                </ng-container>
+
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="salariobruto">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        Salário Bruto
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.salariobruto}} </td>
+                                </ng-container>
+
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="salarioliquido">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        Salário Liquido
+                                    </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.salarioliquido}} </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+
+                            <mat-paginator [pageSizeOptions]="[4, 5, 6]"
+                                           aria-label="Selecione a página de pessoas">
+                            </mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

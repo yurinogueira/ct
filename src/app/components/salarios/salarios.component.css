@@ -1,0 +1,32 @@
+.container-fluid {
+    margin-top: 8px;
+    background-color: whitesmoke;
+    width: 98%;
+    border-radius: 10px;
+}
+
+mat-card {
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.search-field {
+    margin-top: 32px;
+}
+
+.w512 {
+    width: 512px;
+}
+
+.w768 {
+    width: 768px;
+}
+
+mat-slide-toggle p {
+    margin-top: 24px;
+    font-size: 16px;
+}
+
+mat-card-header mat-form-field {
+    width: 100%;
+}

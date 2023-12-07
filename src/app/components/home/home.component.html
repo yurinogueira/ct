@@ -13,13 +13,13 @@
     </button>
 </mat-toolbar>
 <mat-toolbar>
-    <button (click)="setView(2)" mat-button class="f-size black" [ngClass]="{'text-primary': selectView === 2}">
+    <button (click)="setView(2); setSubView(1)" mat-button class="f-size black" [ngClass]="{'text-primary': selectView === 2 && selectSubview === 1}">
         Federal
     </button>
     <div class="vr-a"></div>
-    <mat-form-field class="e-size black" (click)="setView(1)">
+    <mat-form-field class="e-size black" (click)="setView(1); setSubView(1)">
         <mat-label>Estadual</mat-label>
-        <mat-select [(value)]="state.state" [ngClass]="{'text-primary': selectView === 1}">
+        <mat-select [(value)]="state.state" [ngClass]="{'text-primary': selectView === 1 && selectSubview === 1}">
             <mat-option [value]="state.state">
                 {{ state.name }}
             </mat-option>
@@ -28,9 +28,9 @@
         </mat-select>
     </mat-form-field>
     <div class="vr-a"></div>
-    <mat-form-field class="e-size black" (click)="setView(0)">
+    <mat-form-field class="e-size black" (click)="setView(0); setSubView(1)">
         <mat-label>Municipal</mat-label>
-        <mat-select [(value)]="city.name" [ngClass]="{'text-primary': selectView === 0}">
+        <mat-select [(value)]="city.name" [ngClass]="{'text-primary': selectView === 0 && selectSubview === 1}">
             <mat-option [value]="city.name">
                 {{ city.name }}
             </mat-option>
@@ -39,14 +39,14 @@
         </mat-select>
     </mat-form-field>
     <span class="spacer"></span>
-    <button mat-button class="black">Distribuição Geral</button>
+    <button mat-button class="black" [ngClass]="{'text-primary': selectSubview === 1}" (click)="setSubView(1)">Distribuição Geral</button>
     <span class="spacer-b"></span>
-    <button mat-button class="black">Banco de Gastos</button>
+    <button mat-button class="black" [ngClass]="{'text-primary': selectSubview === 2}" (click)="setSubView(2)">Banco de Gastos</button>
 </mat-toolbar>
 
 <app-box *ngIf="mainComponent === 0 && selectSubview === 0" [selectView]="selectView" (infoEvent)="setSubView($event)"></app-box>
 
-<div class="container-fluid tab-back" *ngIf="mainComponent === 0 && selectSubview === 1">
+<div class="container-fluid tab-back" *ngIf="mainComponent === 0 && (selectSubview === 1 || selectSubview == 2)">
     <mat-tab-group>
         <mat-tab label="EDUCAÇÃO"></mat-tab>
         <mat-tab *ngFor="let tax of taxNames" label="{{tax}}" disabled="{{true}}"></mat-tab>
@@ -57,6 +57,7 @@
 <app-brasil-fed (infoEvent)="selectView = $event" *ngIf="mainComponent === 0 && selectSubview === 1 && selectView === 2"></app-brasil-fed>
 <app-estadual *ngIf="mainComponent === 0 && selectSubview === 1 && selectView === 1"></app-estadual>
 <app-municipal *ngIf="mainComponent === 0 && selectSubview === 1 && selectView === 0"></app-municipal>
+<app-salario *ngIf="mainComponent === 0 && selectSubview === 2"></app-salario>
 
 <footer>
     Todos os dados apresentados neste site são fictícios. Nenhuma informação aqui deve ser considerada como real ou verídica.

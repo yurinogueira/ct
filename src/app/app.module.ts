@@ -21,6 +21,8 @@ import {BrasilFedComponent} from "./components/brasil-fed/brasil-fed.component";
 import {ProgressComponent} from "./components/progress/progress.component";
 import {EstadualComponent} from "./components/estadual/estadual.component";
 import {MunicipalComponent} from "./components/municipal/municipal.component";
+import {SalariosComponent} from "./components/salarios/salarios.component";
+import {MAT_DATE_LOCALE} from "@angular/material/core";
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import {MunicipalComponent} from "./components/municipal/municipal.component";
         ProgressComponent,
         EstadualComponent,
         MunicipalComponent,
+        SalariosComponent,
     ],
     imports: [
         BrowserModule,
@@ -48,7 +51,11 @@ import {MunicipalComponent} from "./components/municipal/municipal.component";
         NgOptimizedImage,
         HighchartsChartModule,
     ],
-    providers: [StatePermissionService, CityPermissionService],
+    providers: [
+        StatePermissionService,
+        CityPermissionService,
+        {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

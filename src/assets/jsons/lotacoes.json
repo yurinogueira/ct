@@ -1,0 +1,12 @@
+[
+    {"name": "Secretaria de Educação Municipal", "sigla": "SEM"},
+    {"name": "Hospital Estadual Central", "sigla": "HEC"},
+    {"name": "Instituto Nacional de Seguridade Social", "sigla": "INSS"},
+    {"name": "Departamento de Trânsito Estadual", "sigla": "DETRAN"},
+    {"name": "Secretaria de Finanças Municipal", "sigla": "SFM"},
+    {"name": "Instituto de Pesquisas Tecnológicas", "sigla": "IPT"},
+    {"name": "Companhia de Saneamento Básico", "sigla": "SABESP"},
+    {"name": "Agência Nacional de Vigilância Sanitária", "sigla": "ANVISA"},
+    {"name": "Tribunal de Contas do Estado", "sigla": "TCE"},
+    {"name": "Secretaria de Desenvolvimento Social", "sigla": "SDS"}
+]
