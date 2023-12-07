@@ -1,0 +1,12 @@
+[
+    {"name": "Universidade Federal do Rio de Janeiro", "sigla": "UFRJ"},
+    {"name": "Universidade Estadual do Rio de Janeiro", "sigla": "UERJ"},
+    {"name": "Fundação Oswaldo Cruz", "sigla": "Fiocruz"},
+    {"name": "Instituto Nacional de Matemática Pura e Aplicada", "sigla": "IMPA"},
+    {"name": "Instituto Federal do Rio de Janeiro", "sigla": "IFRJ"},
+    {"name": "Tribunal de Justiça do Estado do Rio de Janeiro", "sigla": "TJRJ"},
+    {"name": "Assembleia Legislativa do Estado do Rio de Janeiro", "sigla": "Alerj"},
+    {"name": "Universidade Federal Fluminense", "sigla": "UFF"},
+    {"name": "Universidade Federal do Estado do Rio de Janeiro", "sigla": "UNIRIO"},
+    {"name": "Instituto Nacional de Traumatologia e Ortopedia", "sigla": "INTO"}
+]
